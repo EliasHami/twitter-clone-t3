@@ -1,6 +1,6 @@
 import { type AppType } from "next/app";
 
-import { api } from "y/utils/api";
+import { api } from "~/utils/api";
 
 import "y/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
