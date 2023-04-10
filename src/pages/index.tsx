@@ -9,6 +9,7 @@ import { LoadingPage, LoadingSpinner } from '~/components/Loading';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Link from 'next/link';
+import { PageLayout } from '~/components/layout';
 
 dayjs.extend(relativeTime);
 
@@ -111,17 +112,15 @@ const Home: NextPage = () => {
   if (!userLoaded) return <div />
 
   return (
-    <main className="flex justify-center h-screen">
-      <div className='w-full md:max-w-2xl border-x border-slate-400'>
-        <div className="flex p-4 border-b border-slate-400">
-          {!isSignedIn && <div className="flex justify-center">
-            <SignInButton />
-          </div>}
-          {!!isSignedIn && <CreatePostWizard />}
-        </div>
-        <Feed />
+    <PageLayout>
+      <div className="flex p-4 border-b border-slate-400">
+        {!isSignedIn && <div className="flex justify-center">
+          <SignInButton />
+        </div>}
+        {!!isSignedIn && <CreatePostWizard />}
       </div>
-    </main>
+      <Feed />
+    </PageLayout>
   );
 };
 
